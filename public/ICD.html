@@ -35,7 +35,8 @@
             }
 
             // Proxy URL for fetching the Index data
-            const indexApiUrl = `http://localhost:3000/proxy/index?Text=${encodeURIComponent(searchTerm)}`;
+            const baseUrl = 'https://icd-me57.onrender.com';  // Replace with your Render URL
+const indexApiUrl = `${baseUrl}/proxy/index?Text=${encodeURIComponent(searchTerm)}`;
             
 
             try {
@@ -58,7 +59,7 @@
             
 
             // Also trigger the ICD search for Tabular/Codetable section (if needed)
-            const apiUrlTabular = `http://localhost:3000/proxy/code?code=${encodeURIComponent(searchTerm)}`;
+            const codeApiUrl = `${baseUrl}/proxy/code?code=${encodeURIComponent(searchTerm)}`;
             try {
                 const response = await fetch(apiUrlTabular);
 
@@ -97,7 +98,8 @@
 
         // Function to fetch data for the clicked term and display in the "Index" section
         async function fetchDataForTerm(term) {
-            const indexApiUrl = `http://localhost:3000/proxy/index?Text=${encodeURIComponent(term)}`;
+            const baseUrl = 'https://icd-me57.onrender.com';  // Replace with your Render URL
+const indexApiUrl = `${baseUrl}/proxy/index?Text=${encodeURIComponent(term)}`;
 
             try {
                 // Fetch new data based on the clicked term
@@ -139,7 +141,9 @@
 
         // Function to search for a clicked ICD code
         async function searchICDCode(icdCode) {
-            const apiUrl = `http://localhost:3000/proxy/code?code=${icdCode}`;
+            const apiUrl = `${baseUrl}/proxy/code?code=${icdCode}`;
+            const level0ApiUrl = `${baseUrl}/proxy/icd-code?Level0=${encodeURIComponent(level0Code)}`;
+
 
             try {
                 const response = await fetch(apiUrl);
