@@ -1,0 +1,13 @@
+{
+  "name": "icd10-api-data",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",  
+  "scripts": {
+    "start": "node fetchData.js"
+  },
+  "dependencies": {
+    "node-fetch": "^3.0.0",
+    "sqlite3": "^5.0.0"
+  }
+}
